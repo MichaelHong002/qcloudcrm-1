@@ -100,7 +100,7 @@ class SmsModel {
 				"type" => "json",
 				"datatype"=>"json",
 				"query" => [
-					"sdkappid" => $datasms['appId'] ,
+					"sdkappid" => $datasms['AppID'] ,
 					"random" => rand(1,999999999)
 				],
 				"data" =>[
