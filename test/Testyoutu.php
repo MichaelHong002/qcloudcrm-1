@@ -55,9 +55,12 @@ class Testyoutu extends PHPUnit_Framework_TestCase {
 
 		$test = file_get_contents('http://pic.58pic.com/58pic/12/49/04/80k58PICzYP.jpg',true);
 		$resp = $yt->update($test,'test.jpg');
-		
+
 		sleep(2);
 		$namecard = $yt->ocr($resp['data']['download_url']);
+
+		Utils::out( "\n", $namecard , "\n");
+
 		$this->assertEquals($namecard['0'],0);
 	}
 
