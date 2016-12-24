@@ -12,8 +12,10 @@ class DefaultsController extends \Tuanduimao\Loader\Controller {
 	}
 	
 	function test() {
-		phpinfo();
+
+		echo "HELLO World!";
 	}
+	
 	
 	function index() {
 		$hello = App::M('Hello');
