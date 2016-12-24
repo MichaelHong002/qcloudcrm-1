@@ -38,6 +38,9 @@ class testCustomer extends PHPUnit_Framework_TestCase {
 				'uid'=>'1'
 				]
 			]);
+
+		Utils::out( "\n", $resp,  "\n" );
+		
 		$this->assertEquals( $resp['code'], 0 );
 	}
 
@@ -54,8 +57,12 @@ class testCustomer extends PHPUnit_Framework_TestCase {
 			 	'SecretID'=>'AKIDcEi3fI86MQNAlEHrxxpcFnHclIpD3fll',
 			 	'SecretKey'=>'0zscSBoGdty5BARI7veyb4teEx3992oT'
 			]);
-		
+
 		$key = $ys->search('test',['num'=>"[N:customerid:1:1]"],'1','1');
+
+		Utils::out( "\n", $key,  "\n" );
+
+
 		$this->assertEquals( $resp['code'], 0 );
 	}
 }
