@@ -20,7 +20,14 @@
     "dependencies": [],
     "injections": [],
     "api": [],
-    "register_api": [],
+    "register_api": {
+        "/Tracking/create": {
+            "name":"创建客户追踪",
+            "controller":"Trackingapi",
+            "action":"create",
+            "public":false
+        }
+    },
     "setup": {
         "install": {
             "controller": "setup",
