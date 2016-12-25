@@ -136,8 +136,12 @@ class SourceModel extends Model {
 	 * @return [type]           [description]
 	 */
 	function uploadImages($markdown) {
-		$config = App::M('config');
-		$cos = App::M("cos",$config->getvalue('cos'));
+		$cos = App::M("cos",[
+				'appid'=>'1252758974',
+				'bucket'=>'qcloudcrm',
+				'SecretID'=>'AKIDcEi3fI86MQNAlEHrxxpcFnHclIpD3fll',
+				'SecretKey'=>'0zscSBoGdty5BARI7veyb4teEx3992oT'
+			]);
 
 		// 正则表达式匹配出全部的符合要求的图片地址
 		if (preg_match_all("/[!]{0,1}\[(.*)\]\(([a-zA-Z0-9\/\_\:\.]+)\)/",$markdown,$match)) {
@@ -162,8 +166,12 @@ class SourceModel extends Model {
 	 */
 	function __delete($_id) {
 
-		$config = App::M('config');
-		$cos = App::M("cos",$config->getvalue('cos'));
+		$cos = App::M("cos", [
+				'appid'=>'1252758974',
+				'bucket'=>'qcloudcrm',
+				'SecretID'=>'AKIDcEi3fI86MQNAlEHrxxpcFnHclIpD3fll',
+				'SecretKey'=>'0zscSBoGdty5BARI7veyb4teEx3992oT'
+			]);
 
 
 
