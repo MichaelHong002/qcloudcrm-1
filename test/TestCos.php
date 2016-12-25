@@ -62,7 +62,12 @@ class TestCos extends PHPUnit_Framework_TestCase {
 				'SecretKey'=>'0zscSBoGdty5BARI7veyb4teEx3992oT'
 			]);
 
-			$resp = $cos->remove('2826335962.jpg');
+			try {
+				$resp = $cos->remove('2826335962.jpg');
+			} catch ( Excp $e )  {
+				Utils::out( $e->toArray() );
+				return; 
+			}  
 
 			Utils::out( "Remove:\n", $resp, "\n");
 			

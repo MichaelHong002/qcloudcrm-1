@@ -42,6 +42,8 @@ class  CosModel {
 			"r" => $randstr,
 			"f" =>$opt['file'],
 		];
+
+
 		// 拼接字符串
 		$orignal = "a={$s['a']}&k={$s['k']}&e={$s['e']}&t={$s['t']}&r={$s['r']}&f={$s['f']}&b={$s['b']}";
 		$signTmp = hash_hmac( 'SHA1', $orignal, $SecretKey , true );
@@ -140,9 +142,9 @@ class  CosModel {
 
 		$appid = $this->appid;
 		$bucket = $this->bucket;
-		$api = "http://sh.file.myqcloud.com/files/v2/{$appid}/{$bucket}/test/$file";
+		$api = "http://sh.file.myqcloud.com/files/v2/{$appid}/{$bucket}/$file";
 
-		$filename  ="/".$appid."/".$bucket."/test/".$file;
+		$filename  ="/".$appid."/".$bucket."/".$file;
 		$signStr = $this->sign(['file'=>$filename,'e'=>'0']);
 		$resp = Utils::Req(
 			"POST",
