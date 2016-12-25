@@ -54,7 +54,6 @@ class TestCos extends PHPUnit_Framework_TestCase {
 	 * @return [type] [description]
 	 */
 	function testRemove() {	
-		return;
 
 			$cos = App::M("Cos",[
 				'appid'=>'1252758974',
