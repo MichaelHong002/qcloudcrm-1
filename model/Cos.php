@@ -71,9 +71,11 @@ class  CosModel {
 		// 生成随机数
 		// 生成随机数避免文件重复	
 		$num = $this->generateId(10);
-		$config = App::M('config');
-		$appid = $config->getvalue('cos')['appid'];
-		$bucket = $config->getvalue('cos')['bucket'];
+
+		$appid = $this->appid;
+		$bucket = $this->bucket;
+
+
 		// $filetype  = isset($opt['filetype']) ? $opt['appid'] : 'jpg';
 		$filename  ="/".$appid."/".$bucket."/test/".$num.".".$opt["filetype"];
 		$file =  $num.".".$opt["filetype"];
@@ -81,7 +83,7 @@ class  CosModel {
 		$opt["attr"] = isset($opt["attr"]) ? $opt["attr"] : "";
 		$opt["insertOnly"] = isset($opt["insertOnly"]) ? $opt["insertOnly"] : "0";
 		$opt["mimetype"] = isset($opt["mimetype"]) ? $opt["mimetype"] : "image/jpeg";
-		$api = "http://sh.file.myqcloud.com/files/v2/{$appid}/{$bucket}/test/$file";
+		$api = "http://sh.file.myqcloud.com/files/v2/{$appid}/{$bucket}/test/{$file}";
 
 		// 文件名字
 		$signStr = $this->sign(["file"=>$filename]);
@@ -132,9 +134,9 @@ class  CosModel {
 	 * @return [type]       [description]
 	 */
 	function remove( $file ){
-		$config = App::M('config');
-		$appid = $config->getvalue('cos')['appid'];
-		$bucket = $config->getvalue('cos')['bucket'];
+
+		$appid = $this->appid;
+		$bucket = $this->bucket;
 		$api = "http://sh.file.myqcloud.com/files/v2/{$appid}/{$bucket}/test/$file";
 
 		$filename  ="/".$appid."/".$bucket."/test/".$file;
