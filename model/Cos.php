@@ -80,10 +80,12 @@ class  CosModel {
 		$filename  ="/".$appid."/".$bucket."/test/".$num.".".$opt["filetype"];
 		$file =  $num.".".$opt["filetype"];
 		$opt["file"] = isset($opt["file"]) ? $opt["file"] : "";
+		$file = ( empty($opt["file"]) ) ?  $file : $opt["file"];
+
 		$opt["attr"] = isset($opt["attr"]) ? $opt["attr"] : "";
 		$opt["insertOnly"] = isset($opt["insertOnly"]) ? $opt["insertOnly"] : "0";
 		$opt["mimetype"] = isset($opt["mimetype"]) ? $opt["mimetype"] : "image/jpeg";
-		$api = "http://sh.file.myqcloud.com/files/v2/{$appid}/{$bucket}/test/{$file}";
+		$api = "http://sh.file.myqcloud.com/files/v2/{$appid}/{$bucket}/{$file}";
 
 		// 文件名字
 		$signStr = $this->sign(["file"=>$filename]);
