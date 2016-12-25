@@ -26,7 +26,7 @@ class TestSourceModel extends PHPUnit_Framework_TestCase  {
 
 			$markdown =  $Source->uploadImages('![](http://pic33.nipic.com/20130916/3420027_192919547000_2.jpg)');
 
-			Utils::out( "testUploadImages\n" , $markdown );
+			Utils::out( "testUploadImages\n" , '![](http://pic33.nipic.com/20130916/3420027_192919547000_2.jpg)' , "\nVS\n" , $markdown );
 
 			$pos = strpos( $markdown, "myqcloud.com");
 			$this->assertNotEquals( $pos, false );
@@ -35,7 +35,7 @@ class TestSourceModel extends PHPUnit_Framework_TestCase  {
 
 		// 缓存测试
 		function testHtml(){
-			
+
 			$src = App::M("Source");
 			$src->html("test", "<b>HELLO WORLD</b>");
 			Utils::out( "testHtml\n", $src->html("test")  );
